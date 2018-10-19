@@ -16,7 +16,7 @@ class BunBo
       FileUtils.mkdir_p(test_folder)
       test_path.write('')
     else
-      "File does not exists"
+      puts  "File does not exists"
     end
   end
 end
