@@ -1,28 +1,34 @@
 # BunBo
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/bun_bo`. To experiment with that code, run `bin/console` for an interactive prompt.
+This is a simple test generator for ruby code. The gem currently is a
+work-in-progress. The functionality it intends to deliver:
 
-TODO: Delete this and the text above, and describe your gem
+- [x] Create new test file from existing ruby file
+- [ ] Populate test file with `describe` block for class/module
+- [ ] Populate test file with `describe` block for each method
+- [ ] Support both minitest and rspec
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'bun_bo'
-```
-
-And then execute:
-
-    $ bundle
-
 Or install it yourself as:
 
-    $ gem install bun_bo
+```shell
+$ gem install bun_bo
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+```shell
+bun_bo <file_name>
+```
+
+Example:
+
+```shell
+bun_bo lib/bun_bo.rb
+```
+
+The above command will create a new test file in `spec/lib/bun_bo_spec.rb`
 
 ## Development
 
@@ -32,7 +38,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/bun_bo.
+Bug reports and pull requests are welcome on GitHub at https://github.com/hieuk09/bun_bo.
 
 ## License
 

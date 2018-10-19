@@ -3,21 +3,7 @@
 require "bundler/setup"
 require "bun_bo"
 
-
 require 'fileutils'
 
 input_path = ARGV.first
-
-if File.file?(input_path)
-  folder_path, file_name = File.split(input_path)
-  extension = File.extname(file_name)
-  base_name = File.basename(file_name, extension)
-
-  test_folder = File.join('spec', folder_path)
-  test_path = File.join(test_folder, "#{base_name}_spec#{extension}")
-
-  FileUtils.mkdir_p(test_folder)
-  File.write(test_path, '')
-else
-  puts "File does not exists"
-end
+BunBo.new.run(input_path)
