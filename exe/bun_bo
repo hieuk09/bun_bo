@@ -3,4 +3,9 @@
 require "bun_bo"
 
 input_path = ARGV.first
-BunBo.new.run(input_path)
+
+begin
+  BunBo.new.run(input_path)
+rescue BunBo::FileNotFound => e
+  puts e.message
+end
