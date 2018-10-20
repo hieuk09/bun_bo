@@ -10,7 +10,7 @@ work-in-progress. The functionality it intends to deliver:
 
 ## Installation
 
-Or install it yourself as:
+Install it with:
 
 ```shell
 $ gem install bun_bo
