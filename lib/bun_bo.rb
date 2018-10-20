@@ -1,4 +1,5 @@
 require "bun_bo/version"
+require "bun_bo/file_not_found"
 require 'fileutils'
 
 class BunBo
@@ -16,7 +17,7 @@ class BunBo
       FileUtils.mkdir_p(test_folder)
       test_path.write('')
     else
-      puts "File does not exists"
+      raise FileNotFound
     end
   end
 end
