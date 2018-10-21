@@ -28,7 +28,7 @@ Example:
 bun_bo lib/bun_bo.rb
 ```
 
-The above command will create a new test file in `spec/lib/bun_bo_spec.rb`
+The above command will create a new test file in `spec/bun_bo_spec.rb`.
 
 ## Development
 
