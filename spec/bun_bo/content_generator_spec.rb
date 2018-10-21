@@ -5,7 +5,7 @@ RSpec.describe BunBo::ContentGenerator do
     subject { generator.generate }
 
     context 'when rails_helper exists' do
-      let(:helper_path) { root_path.join('spec', 'rails_helper') }
+      let(:helper_path) { root_path.join('spec', 'rails_helper.rb') }
 
       before do
         File.write(helper_path, '')
@@ -19,7 +19,7 @@ RSpec.describe BunBo::ContentGenerator do
     end
 
     context 'when spec_helper exists' do
-      let(:helper_path) { root_path.join('spec', 'spec_helper') }
+      let(:helper_path) { root_path.join('spec', 'spec_helper.rb') }
 
       before do
         File.write(helper_path, '')

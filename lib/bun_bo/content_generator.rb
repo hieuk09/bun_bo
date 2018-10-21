@@ -5,9 +5,9 @@ class BunBo
     end
 
     def generate
-      if root_path.join('spec', 'rails_helper').exist?
+      if root_path.join('spec', 'rails_helper.rb').exist?
         "require 'rails_helper'"
-      elsif  root_path.join('spec', 'spec_helper').exist?
+      elsif  root_path.join('spec', 'spec_helper.rb').exist?
         "require 'spec_helper'"
       else
         ''
