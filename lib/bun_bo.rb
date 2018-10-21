@@ -1,5 +1,6 @@
 require "bun_bo/version"
-require "bun_bo/file_not_found"
+require "bun_bo/errors/file_not_found"
+require "bun_bo/errors/file_existed"
 require 'fileutils'
 
 class BunBo
@@ -14,8 +15,12 @@ class BunBo
       test_folder = folder_path.sub(/^(app|lib)/, 'spec')
       test_path = test_folder.join("#{base_name}_spec").sub_ext(".rb")
 
-      FileUtils.mkdir_p(test_folder)
-      test_path.write('')
+      if !test_path.exist?
+        FileUtils.mkdir_p(test_folder)
+        test_path.write('')
+      else
+        raise FileExisted, test_path
+      end
     else
       raise FileNotFound
     end
