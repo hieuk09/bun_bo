@@ -1,4 +1,4 @@
-require 'bun_bo/errors/base_error'
+require 'bun_bo/results/base_error'
 
 class BunBo
   class FileExisted < BaseError

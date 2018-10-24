@@ -4,8 +4,5 @@ require "bun_bo"
 
 input_path = ARGV.first
 
-begin
-  BunBo.new.run(input_path)
-rescue BunBo::BaseError => e
-  puts e.message
-end
+result = BunBo.new.run(input_path)
+puts result.message
