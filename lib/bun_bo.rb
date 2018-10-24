@@ -1,6 +1,7 @@
 require "bun_bo/version"
-require "bun_bo/errors/file_not_found"
-require "bun_bo/errors/file_existed"
+require "bun_bo/results/file_not_found"
+require "bun_bo/results/file_existed"
+require "bun_bo/results/success"
 require "bun_bo/content_generator"
 require 'fileutils'
 
@@ -20,11 +21,12 @@ class BunBo
         FileUtils.mkdir_p(test_folder)
         generator = ContentGenerator.new(Pathname.pwd)
         test_path.write(generator.generate)
+        Success.new(test_path)
       else
-        raise FileExisted, test_path
+        FileExisted.new(test_path)
       end
     else
-      raise FileNotFound
+      FileNotFound.new
     end
   end
 end

@@ -7,10 +7,9 @@ RSpec.describe BunBo do
     context 'when input file does not exist' do
       let(:input) { 'path/error.rb' }
 
-      it "raises error" do
-        expect {
-          bun_bo.run(input)
-        }.to raise_error(BunBo::FileNotFound)
+      it "returns error" do
+        result = bun_bo.run(input)
+        expect(result).to be_a(BunBo::FileNotFound)
       end
     end
 
@@ -26,10 +25,9 @@ RSpec.describe BunBo do
         File.delete(output)
       end
 
-      it "raises error" do
-        expect {
-          bun_bo.run(input)
-        }.to raise_error(BunBo::FileExisted)
+      it "returns error" do
+        result = bun_bo.run(input)
+        expect(result).to be_a(BunBo::FileExisted)
       end
     end
 
@@ -39,7 +37,8 @@ RSpec.describe BunBo do
 
       it "creates a spec file" do
         expect {
-          bun_bo.run(input)
+          result = bun_bo.run(input)
+          expect(result).to be_a(BunBo::Success)
         }.to change { File.exist?(output) }.from(false).to(true)
 
         File.delete(output)
