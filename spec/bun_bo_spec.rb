@@ -57,6 +57,7 @@ RSpec.describe BunBo do
         expect {
           result = bun_bo.run(input)
           expect(result).to be_a(BunBo::DirectoryResult)
+          expect(result.message).to eq 'spec/fixtures/folder/example_spec.rb is created successfully.'
         }.to change { File.exist?(output) }.from(false).to(true)
       end
     end

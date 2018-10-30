@@ -27,7 +27,7 @@ class BunBo
         FileExisted.new(test_path)
       end
     elsif input_path.directory?
-      result = input_path.each_child { |child| run(child) }
+      result = input_path.each_child.map { |child| run(child) }
       BunBo::DirectoryResult.new(result)
     else
       FileNotFound.new
