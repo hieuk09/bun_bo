@@ -11,5 +11,9 @@ class BunBo
     def message
       results.map(&:message).join("\n")
     end
+
+    private
+
+    attr_reader :results
   end
 end
