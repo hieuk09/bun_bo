@@ -1,4 +1,5 @@
 require "bun_bo/version"
+require "bun_bo/results/directory_result"
 require "bun_bo/results/file_not_found"
 require "bun_bo/results/file_existed"
 require "bun_bo/results/success"
@@ -25,6 +26,9 @@ class BunBo
       else
         FileExisted.new(test_path)
       end
+    elsif input_path.directory?
+      result = input_path.each_child { |child| run(child) }
+      BunBo::DirectoryResult.new(result)
     else
       FileNotFound.new
     end

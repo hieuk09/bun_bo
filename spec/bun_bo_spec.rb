@@ -44,5 +44,21 @@ RSpec.describe BunBo do
         File.delete(output)
       end
     end
+
+    context 'when input is a folder' do
+      let(:input) { 'spec/fixtures/folder' }
+      let(:output) { "spec/fixtures/folder/example_spec.rb" }
+
+      after do
+        File.delete(output)
+      end
+
+      it "creates spec files for all ruby files in the folder" do
+        expect {
+          result = bun_bo.run(input)
+          expect(result).to be_a(BunBo::DirectoryResult)
+        }.to change { File.exist?(output) }.from(false).to(true)
+      end
+    end
   end
 end
