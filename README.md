@@ -4,6 +4,7 @@ This is a simple test generator for ruby code. The gem currently is a
 work-in-progress. The functionality it intends to deliver:
 
 - [x] Create new test file from existing ruby file
+- [x] Create new test files for all ruby files in a folder
 - [ ] Populate test file with `describe` block for class/module
 - [ ] Populate test file with `describe` block for each method
 - [ ] Support both minitest and rspec
@@ -18,8 +19,10 @@ $ gem install bun_bo
 
 ## Usage
 
+### For single file
+
 ```shell
-bun_bo <file_name>
+bun_bo <file_path>
 ```
 
 Example:
@@ -29,6 +32,36 @@ bun_bo lib/bun_bo.rb
 ```
 
 The above command will create a new test file in `spec/bun_bo_spec.rb`.
+
+### For folder
+
+```shell
+bun_bo <folder_path>
+```
+
+Example:
+
+You have a directory tree like this:
+
+```
+lib
+|___ folder
+    |___ file_1.rb
+    |___ file_2.rb
+```
+
+```shell
+bun_bo lib/folder
+```
+
+The above command will create the below new test files:
+
+```
+spec
+|___ folder
+    |___ file_1_spec.rb
+    |___ file_2_spec.rb
+```
 
 ## Development
 
